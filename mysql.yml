@@ -1,0 +1,14 @@
+---
+- name: Install MySQL on slave2
+  hosts: slave2
+  become: yes
+  tasks:
+    - name: Update apt repo
+      apt:
+        update_cache: yes
+
+    - name: Install MySQL server
+      apt:
+        name: mysql-server
+        state: present
+

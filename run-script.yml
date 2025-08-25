@@ -1,0 +1,13 @@
+---
+- name: Run custom script on all hosts
+  hosts: all
+  become: yes
+  tasks:
+    - name: Copy script to remote host
+      copy:
+        src: custom.sh
+        dest: /tmp/custom.sh
+        mode: '0755'
+
+    - name: Execute the script
+      command: /tmp/custom.sh

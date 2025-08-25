@@ -1,0 +1,12 @@
+[apache]
+172.31.90.22     # slave1
+172.31.92.165    # slave3
+
+[nginx]
+172.31.93.2      # slave2
+172.31.81.84     # slave4
+
+[all:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=/home/ubuntu/ansible-key.pem
+

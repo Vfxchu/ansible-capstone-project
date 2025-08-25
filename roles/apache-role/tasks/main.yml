@@ -1,0 +1,27 @@
+---
+- name: Update apt repo
+  apt:
+    update_cache: yes
+
+- name: Install Apache2
+  apt:
+    name: apache2
+    state: present
+
+- name: Copy custom index.html
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    owner: www-data
+    group: www-data
+    mode: '0644'
+
+- name: Start and enable Apache2
+  service:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: Post-install message
+  debug:
+    msg: "Apache installed successfully on {{ inventory_hostname }}"

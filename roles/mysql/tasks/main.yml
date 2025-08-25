@@ -1,0 +1,10 @@
+---
+- name: Update apt repo
+  apt:
+    update_cache: yes
+
+- name: Install MySQL server
+  apt:
+    name: mysql-server
+    state: present
+

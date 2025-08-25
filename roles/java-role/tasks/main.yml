@@ -1,0 +1,14 @@
+---
+- name: Update apt repo
+  apt:
+    update_cache: yes
+
+- name: Install Java
+  apt:
+    name: default-jdk
+    state: present
+
+- name: Post-install message
+  debug:
+    msg: "Java installed successfully on {{ inventory_hostname }}"
+

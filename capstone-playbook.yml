@@ -1,0 +1,14 @@
+---
+- name: Configure Apache group
+  hosts: apache
+  become: yes
+  roles:
+    - apache-role
+    - java-role
+
+- name: Configure Nginx group
+  hosts: nginx
+  become: yes
+  roles:
+    - nginx-role
+

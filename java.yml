@@ -1,0 +1,13 @@
+---
+- name: Install Java on slave1
+  hosts: slave1
+  become: yes
+  tasks:
+    - name: Update apt repo
+      apt:
+        update_cache: yes
+
+    - name: Install Java
+      apt:
+        name: default-jdk
+        state: present
